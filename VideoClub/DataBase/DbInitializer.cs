@@ -30,10 +30,10 @@ namespace VideoClub.DataBase
                 Domicilio = "calle falsa 123"
             });
 
-            var amarillo = new Categoria()
+            var verde = new Categoria()
             {
                 Id = Guid.NewGuid(),
-                Disenio = "yellow",
+                Disenio = "green",
                 DiasDeAlquiler = 7,
                 Precio = 100,
                 Descripcion = "Estreno"
