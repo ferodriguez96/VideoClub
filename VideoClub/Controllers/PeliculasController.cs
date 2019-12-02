@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -216,8 +217,8 @@ namespace VideoClub.Controllers
 
 
 
-
-        public async Task<IActionResult> AlquilarPelicula(Guid? id)  //VERIFICAR STOCK
+        [Authorize]
+        public async Task<IActionResult> AlquilarPelicula(Guid? id)
         {
 
             if (id == null)
@@ -241,12 +242,12 @@ namespace VideoClub.Controllers
             return View(pelicula);
         }
 
+        [Authorize]
         [HttpPost, ActionName("Alquilar")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AlquilarConfirm(Guid id)
         {
             var pelicula = await _context.Peliculas.FindAsync(id);
-            //var cliente =  _context.Clientes.Find(x => x.Email == User.Identity.Name); # MAL
             var cliente = (from x in _context.Clientes
                            where x.Email == User.Identity.Name
                            select x).FirstOrDefault();
