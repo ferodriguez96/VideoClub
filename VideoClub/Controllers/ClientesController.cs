@@ -18,7 +18,11 @@ namespace VideoClub.Controllers
         {
             _context = context;
         }
-
+        public async Task<IActionResult> Admin()
+        {
+            var videoClubDbContext = _context.Clientes;
+            return View(await videoClubDbContext.ToListAsync());
+        }
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
@@ -161,7 +165,7 @@ namespace VideoClub.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(HomeController.Index));
             }
             return View(cliente);
         }

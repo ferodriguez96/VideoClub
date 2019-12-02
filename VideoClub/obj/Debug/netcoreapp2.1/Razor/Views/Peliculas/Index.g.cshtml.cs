@@ -137,7 +137,7 @@ WriteAttributeValue(" ", 308, item.Categoria.Disenio, 309, 23, false);
             WriteLiteral(" MIN\r\n            </td>\r\n            <td>");
             EndContext();
             BeginContext(805, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "86a4915223ff45fbbbca82f0d0762062", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "35af6de2e9764b8f9492c3dbef3c8fda", async() => {
                 BeginContext(853, 25, true);
                 WriteLiteral("<button>Detalles</button>");
                 EndContext();
@@ -172,7 +172,7 @@ WriteAttributeValue(" ", 308, item.Categoria.Disenio, 309, 23, false);
             WriteLiteral("</td>\r\n            <td>");
             EndContext();
             BeginContext(905, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d12b04a8a7604f61a399e64ba8b92207", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ff01d78ef544c6295566523abdaf3a6", async() => {
                 BeginContext(962, 25, true);
                 WriteLiteral("<button>Alquilar</button>");
                 EndContext();

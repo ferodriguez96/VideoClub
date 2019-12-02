@@ -66,7 +66,7 @@ using VideoClub.Models;
             WriteLiteral("\r\n<h2>Admin</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(119, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "500b167ca55044cb9d14827ae82b2d12", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "464a19f376b5404fa2062b8ddc4c6ffc", async() => {
                 BeginContext(142, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -210,7 +210,7 @@ WriteAttributeValue(" ", 1317, item.Categoria.Disenio, 1318, 23, false);
             WriteLiteral("</div></div>\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1512, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d44808702e0c4b228702877a836d72e8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7398b978cdcf4a0fb197f82d303d8b46", async() => {
                 BeginContext(1557, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -245,7 +245,7 @@ WriteAttributeValue(" ", 1317, item.Categoria.Disenio, 1318, 23, false);
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1585, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "472b69606d0b40f2855112f273f512f9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc1819b82e0b413ba8e554a49d5e62b9", async() => {
                 BeginContext(1633, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -280,7 +280,7 @@ WriteAttributeValue(" ", 1317, item.Categoria.Disenio, 1318, 23, false);
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1664, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10b0dc516c9c40688d2249e0ce56e8f7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "91facd8f984d4cd293c9f54eb84f01e1", async() => {
                 BeginContext(1711, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
