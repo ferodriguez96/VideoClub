@@ -25,7 +25,12 @@ namespace VideoClub.Controllers
             var videoClubDbContext = _context.Devoluciones.Include(d => d.Alquiler).Where(d => d.Alquiler.Cliente.Email == User.Identity.Name).Include(p => p.Alquiler.Pelicula);
             return View(await videoClubDbContext.ToListAsync());
         }
-
+        // GET: Devoluciones
+        public async Task<IActionResult> Admin()
+        {
+            var videoClubDbContext = _context.Devoluciones.Include(d => d.Alquiler);
+            return View(await videoClubDbContext.ToListAsync());
+        }
         // GET: Devoluciones/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {

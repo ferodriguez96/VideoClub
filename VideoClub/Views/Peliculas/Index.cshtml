@@ -5,7 +5,29 @@
 }
 
 <h2>Peliculas</h2>
-
+<form asp-action="Index" asp-controller="Peliculas" method="get">
+    <div class="container">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input type="text" name="titulo" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label label-for="generoId" class="control-label"></label>
+                <select name="generoId" class="form-control" asp-items="ViewBag.GeneroId"></select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label label-for="categoriaId" class="control-label"></label>
+                <select name="categoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
+            </div>
+        </div>
+        <br /><button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+</form>
 <table class="table">
     <tbody>
         @foreach (var item in Model)

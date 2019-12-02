@@ -21,7 +21,7 @@ namespace VideoClub.Controllers
         }
 
         // GET: Peliculas
-        public async Task<IActionResult> Index(string titulo = "", Guid? generoId = null)
+        public async Task<IActionResult> Index(string titulo = "", Guid? generoId = null, Guid? categoriaId = null)
         {
             var peliculas = await _context
                 .Peliculas
@@ -29,7 +29,8 @@ namespace VideoClub.Controllers
                 .Include(p => p.PeliculaGeneros).ThenInclude(pg => pg.Genero)
                 .Where(p => p.Stock>0 &&
                     (string.IsNullOrWhiteSpace(titulo) || p.Titulo.Contains(titulo)) &&
-                    (!generoId.HasValue || p.PeliculaGeneros.Any(pg => pg.GeneroId == generoId)))
+                    (!generoId.HasValue || p.PeliculaGeneros.Any(pg => pg.GeneroId == generoId)) &&
+                    (!categoriaId.HasValue || p.CategoriaId.Equals(categoriaId)))
                 .ToListAsync();
 
             var generos = _context
@@ -40,6 +41,13 @@ namespace VideoClub.Controllers
 
             ViewData["GeneroId"] = new SelectList(generos, "Value", "Text", generoId);
 
+            var categorias = _context
+                .Categorias
+                .Select(x => new SelectListItem(x.Descripcion, x.Id.ToString()))
+                .ToList()
+                .Prepend(new SelectListItem("Elegir categoria",""));
+
+            ViewData["CategoriaId"] = new SelectList(categorias, "Value", "Text", categoriaId);
             return View(peliculas);
         }
 

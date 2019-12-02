@@ -72,3 +72,4 @@ C:\Users\ferod\source\repos\VideoClub\VideoClub\obj\Debug\netcoreapp2.1\Razor\Vi
 C:\Users\ferod\source\repos\VideoClub\VideoClub\obj\Debug\netcoreapp2.1\Razor\Views\Alquileres\Devolver.g.cshtml.cs
 C:\Users\ferod\source\repos\VideoClub\VideoClub\obj\Debug\netcoreapp2.1\Razor\Views\Clientes\MiPerfil.g.cshtml.cs
 C:\Users\ferod\source\repos\VideoClub\VideoClub\obj\Debug\netcoreapp2.1\Razor\Views\Clientes\Admin.g.cshtml.cs
+C:\Users\ferod\source\repos\VideoClub\VideoClub\obj\Debug\netcoreapp2.1\Razor\Views\Devoluciones\Admin.g.cshtml.cs
