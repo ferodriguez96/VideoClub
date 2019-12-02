@@ -39,10 +39,10 @@
                         <ul class="dropdown-menu">
                             <li><a asp-controller="Peliculas" asp-action="Admin">Peliculas</a></li>
                             <li><a asp-controller="Categorias" asp-action="Index">Categorias</a></li>
-                            <li><a asp-controller="Generos" asp-action="Index">Peliculas</a></li>
-                            <li><a asp-controller="Alquileres" asp-action="Admin">Categorias</a></li>
-                            <li><a asp-controller="PeliculaGeneros" asp-action="Index">Peliculas</a></li>
-                            <li><a asp-controller="Devoluciones" asp-action="Admin">Categorias</a></li>
+                            <li><a asp-controller="Generos" asp-action="Index">Generos</a></li>
+                            <li><a asp-controller="Alquileres" asp-action="Admin">Alquileres</a></li>
+                            <li><a asp-controller="PeliculaGeneros" asp-action="Index">Peliculas-Generos</a></li>
+                            <li><a asp-controller="Devoluciones" asp-action="Admin">Devoluciones</a></li>
                         </ul>
                     </li>
                     <li><a asp-area="" asp-controller="Peliculas" asp-action="Index">Peliculas</a></li>
@@ -56,7 +56,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.Name <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a asp-controller="Alquileres" asp-action="Index">Mis alquileres</a></li>
-                                <li><a asp-controller="Alquileres" asp-action="Index">Mis alquileres</a></li>
+                                <li><a asp-controller="Devoluciones" asp-action="Index">Mis Devoluciones</a></li>
+                                <li><a asp-controller="Clientes" asp-action="MiPerfil">Editar Perfil</a></li>
                                 <li>
                                     <form method="post" asp-controller="Account" asp-action="Logout">
                                         <button class="btn btn-link" type="submit">Logout</button>

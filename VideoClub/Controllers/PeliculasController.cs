@@ -113,7 +113,7 @@ namespace VideoClub.Controllers
                     _context.Add(new PeliculaGenero() { Id = Guid.NewGuid(), PeliculaId = pelicula.Id, GeneroId = genero });
                 }
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Admin));
             }
             ViewData["GeneroId"] = new SelectList(_context.Generos, "Id", "Descripcion", generos);
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Descripcion", pelicula.CategoriaId);
@@ -172,7 +172,7 @@ namespace VideoClub.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Admin));
             }
             ViewData["GeneroId"] = new SelectList(_context.Generos, "Id", "Descripcion", generos);
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Descripcion", pelicula.CategoriaId);

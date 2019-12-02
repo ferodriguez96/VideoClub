@@ -22,7 +22,7 @@ namespace VideoClub.Controllers
         // GET: Devoluciones
         public async Task<IActionResult> Index()
         {
-            var videoClubDbContext = _context.Devoluciones.Include(d => d.Alquiler);
+            var videoClubDbContext = _context.Devoluciones.Include(d => d.Alquiler).Where(d => d.Alquiler.Cliente.Email == User.Identity.Name).Include(p => p.Alquiler.Pelicula);
             return View(await videoClubDbContext.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace VideoClub.Controllers
             }
 
             var devolucion = await _context.Devoluciones
-                .Include(d => d.Alquiler)
+                .Include(d => d.Alquiler).Include(p=>p.Alquiler.Pelicula)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (devolucion == null)
             {

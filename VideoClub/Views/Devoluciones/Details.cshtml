@@ -11,6 +11,18 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Alquiler.FechaAlta)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Alquiler.FechaAlta)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Alquiler.PrecioOriginal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Alquiler.PrecioOriginal)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.FechaDevolucion)
         </dt>
         <dd>
@@ -26,7 +38,7 @@
             @Html.DisplayNameFor(model => model.Alquiler)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Alquiler.Id)
+            @Html.DisplayFor(model => model.Alquiler.Pelicula.Titulo)
         </dd>
     </dl>
 </div>

@@ -27,9 +27,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.PrecioOriginal)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Devolucion)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -52,12 +49,8 @@
                 @Html.DisplayFor(modelItem => item.PrecioOriginal)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Devolucion.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Devolver" asp-route-id="@item.Id">Devolver</a>
             </td>
         </tr>
 }

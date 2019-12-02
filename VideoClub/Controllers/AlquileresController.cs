@@ -175,5 +175,63 @@ namespace VideoClub.Controllers
         {
             return _context.Alquileres.Any(e => e.Id == id);
         }
+        // GET: Alquileres/Delete/5
+        public async Task<IActionResult> Devolver(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var alquiler = await _context.Alquileres
+                .Include(a => a.Cliente)
+                .Include(a => a.Pelicula)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (alquiler == null)
+            {
+                return NotFound();
+            }
+
+            return View(alquiler);
+        }
+
+
+
+        // POST: Alquileres/Delete/5
+        [HttpPost, ActionName("Devolver")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DevolverConfirmed(Guid id) //Crear devolucion, eliminar alquiler, sumar stock
+        {
+            //Devolucion de alquiler
+            Alquiler alquiler = await _context.Alquileres.FindAsync(id);
+            Devolucion devolucion = new Devolucion();
+            devolucion.Id = new Guid();
+            devolucion.Alquiler = alquiler;
+            devolucion.AlquilerId = id;
+            DateTime fechaDevolucion = DateTime.Now.Date;
+            if (alquiler.FechaVencimiento <= fechaDevolucion)
+            {
+                devolucion.PrecioFinal = alquiler.PrecioOriginal * (float)1.5;
+            }
+            else
+            {
+                devolucion.PrecioFinal = alquiler.PrecioOriginal;
+            }
+            devolucion.FechaDevolucion = fechaDevolucion;
+            alquiler.DevolucionId = devolucion.Id;
+            alquiler.Devolucion = devolucion;
+
+            //sumo stock de la pelicula
+
+            Pelicula pelicula = await _context.Peliculas.FindAsync(alquiler.PeliculaId);
+            pelicula.Stock += 1;
+
+            _context.Peliculas.Update(pelicula);
+            _context.Devoluciones.Add(devolucion);
+            _context.Alquileres.Update(alquiler);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

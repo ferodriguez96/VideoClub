@@ -1,11 +1,10 @@
 ﻿@model VideoClub.Models.Alquiler
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Devolver";
 }
 
-<h2>Details</h2>
-
+<h3>¿Desea devolver esta película?</h3>
 <div>
     <h4>Alquiler</h4>
     <hr />
@@ -41,14 +40,16 @@
             @Html.DisplayFor(model => model.PrecioOriginal)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Devolucion)
+            @Html.DisplayNameFor(model => model.DevolucionId)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Devolucion.FechaDevolucion)
+            @Html.DisplayFor(model => model.DevolucionId)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+    <form asp-action="Devolver">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Devolver" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
 </div>

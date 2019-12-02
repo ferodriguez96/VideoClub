@@ -22,7 +22,50 @@ namespace VideoClub.Controllers
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clientes.ToListAsync());
+            var videoClubDbContext = _context.Clientes.Where(a => a.Email == User.Identity.Name);
+            return View(await videoClubDbContext.ToListAsync());
+        }
+        public async Task<IActionResult> MiPerfil()
+        {
+            var videoClubDbContext = _context.Clientes.Where(a => a.Email == User.Identity.Name);
+            return View(await videoClubDbContext.FirstAsync());
+        }
+        // POST: Clientes/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> MiPerfil(Guid id, [Bind("Id,Nombre,Apellido,Dni,Domicilio,Email,Password")] Cliente cliente, String contrasena)
+        {
+            if (id != cliente.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    byte[] data = System.Text.Encoding.ASCII.GetBytes(contrasena);
+                    data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                    cliente.Password = data;
+                    _context.Update(cliente);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ClienteExists(cliente.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(HomeController.Index));
+            }
+            return View(cliente);
         }
 
         // GET: Clientes/Details/5
@@ -90,7 +133,7 @@ namespace VideoClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nombre,Apellido,Dni,Domicilio,Email,Password")] Cliente cliente)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nombre,Apellido,Dni,Domicilio,Email,Password")] Cliente cliente, String contrasena)
         {
             if (id != cliente.Id)
             {
@@ -101,7 +144,7 @@ namespace VideoClub.Controllers
             {
                 try
                 {
-                    byte[] data = cliente.Password;
+                    byte[] data = System.Text.Encoding.ASCII.GetBytes(contrasena);
                     data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
                     cliente.Password = data;
                     _context.Update(cliente);

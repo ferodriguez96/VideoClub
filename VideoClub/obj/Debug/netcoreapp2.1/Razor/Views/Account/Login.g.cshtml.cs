@@ -65,7 +65,7 @@ using VideoClub.Models;
             WriteLiteral("\r\n<h2>Login</h2>\r\n<div class=\"container\">\r\n    <div class=\"col-md-3\">\r\n        ");
             EndContext();
             BeginContext(122, 719, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "172e857fac124c1b94e91db89c195cec", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "77fe0a83048d48a1be469e79db351c94", async() => {
                 BeginContext(161, 57, true);
                 WriteLiteral("\r\n            <div class=\"text-danger\">\r\n                ");
                 EndContext();
