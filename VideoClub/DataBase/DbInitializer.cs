@@ -52,7 +52,7 @@ namespace VideoClub.DataBase
                 AnioLanzamiento = 1994,
                 Duracion = 190,
                 Stock = 5,
-                Categoria = amarillo
+                Categoria = verde
             };
             var a = new PeliculaGenero()
             {
@@ -65,7 +65,7 @@ namespace VideoClub.DataBase
             titanic.PeliculaGeneros.Add(a);
 
             context.Peliculas.Add(titanic);
-            context.Categorias.Add(amarillo);
+            context.Categorias.Add(verde);
             context.SaveChanges();
         }
     }
