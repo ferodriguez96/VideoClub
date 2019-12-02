@@ -165,7 +165,7 @@ namespace VideoClub.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(HomeController.Index));
+                return RedirectToAction(nameof(Index));
             }
             return View(cliente);
         }
