@@ -1,0 +1,22 @@
+﻿.navbar {
+    background-color: #1f4599;
+}
+.navbar-brand{
+    padding:9px 15px;
+}
+.navbar-inverse .navbar-nav li a {
+    color: azure;
+}
+.navbar-inverse .navbar-nav li a:hover {
+    color: gold;
+}
+div .categoria{
+    float: left;
+    margin-left: 5px;
+}
+.dropdown-menu{ 
+    background-color: dimgray;
+}
+.dropdown-menu > li > a:hover {
+    background-color: gray;
+}

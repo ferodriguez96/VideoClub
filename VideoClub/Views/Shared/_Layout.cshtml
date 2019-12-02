@@ -15,24 +15,61 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <link rel="stylesheet" href="~/css/syle.css" />
+    <link rel="icon" href="~/images/b_icon.jpg">
+    <script src="https://kit.fontawesome.com/64c0735154.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle navbar" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">VideoClub</a>
+                <!--<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">VideoClub</a>-->
+                <a asp-area="" class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/images/logo.svg" height="30" alt=""></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion</a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="Peliculas" asp-action="Admin">Peliculas</a></li>
+                            <li><a asp-controller="Categorias" asp-action="Index">Categorias</a></li>
+                            <li><a asp-controller="Generos" asp-action="Index">Peliculas</a></li>
+                            <li><a asp-controller="Alquileres" asp-action="Admin">Categorias</a></li>
+                            <li><a asp-controller="PeliculaGeneros" asp-action="Index">Peliculas</a></li>
+                            <li><a asp-controller="Devoluciones" asp-action="Admin">Categorias</a></li>
+                        </ul>
+                    </li>
+                    <li><a asp-area="" asp-controller="Peliculas" asp-action="Index">Peliculas</a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.Name <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a asp-controller="Alquileres" asp-action="Index">Mis alquileres</a></li>
+                                <li><a asp-controller="Alquileres" asp-action="Index">Mis alquileres</a></li>
+                                <li>
+                                    <form method="post" asp-controller="Account" asp-action="Logout">
+                                        <button class="btn btn-link" type="submit">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Account" asp-action="Login">Iniciar sesion</a></li>
+                        <li><a asp-controller="Clientes" asp-action="Create">Registrarse</a></li>
+                    }
                 </ul>
             </div>
         </div>

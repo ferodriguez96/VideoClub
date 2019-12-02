@@ -31,7 +31,6 @@ namespace VideoClub.Models
         [Display(Name = "Categoría ID")]
         [Required]
         public virtual Guid CategoriaId { get; set; } //En general, nada que ver con el genero de la pelicula
-
         public virtual Categoria Categoria { get; set; } //En general, nada que ver con el genero de la pelicula
 
         public virtual ICollection<Alquiler> Alquileres { get; set; }

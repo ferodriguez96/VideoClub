@@ -1,0 +1,27 @@
+﻿@model IEnumerable<VideoClub.Models.Pelicula>
+
+@{
+    ViewData["Title"] = "Peliculas";
+}
+
+<h2>Peliculas</h2>
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <div><i class="fas fa-ticket-alt categoria" style="color: @item.Categoria.Disenio; font-size: 20px;"></i><div class="categoria">@Html.DisplayFor(modelItem => item.Categoria.Descripcion)</div></div>
+                <!--<div><div class="categoria" style="width:30px;height:30px; background-color:@item.Categoria.Disenio; border-style: solid; border-color: black;"></div>-->
+            </td>
+            <td>
+                <b>@Html.DisplayFor(modelItem => item.Titulo)</b> (@Html.DisplayFor(modelItem => item.AnioLanzamiento))
+                <br />@Html.DisplayFor(modelItem => item.PeliculaGeneros.FirstOrDefault().Genero.Descripcion) - @Html.DisplayFor(modelItem => item.Duracion) MIN
+            </td>
+            <td><a asp-action="Details" asp-route-id="@item.Id"><button>Detalles</button></a></td>
+            <td><a asp-action="AlquilarPelicula" asp-route-id="@item.Id"><button>Alquilar</button></a></td>
+        </tr>
+        }
+    </tbody>
+</table>
